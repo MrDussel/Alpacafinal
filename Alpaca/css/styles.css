@@ -1,0 +1,605 @@
+body {
+	margin: 0; height: 100%;
+  overflow: hidden;
+  font-family: giulia-plain, sans-serif;
+
+}
+
+
+a{
+	cursor: pointer;
+}
+
+.section{
+	background-image: url("./img/bg/bgBig.png");
+
+}
+
+nav{
+  position: fixed;
+  z-index: 2;
+}
+
+.shoptext{
+	color: #ffe0b2;
+	position: fixed;
+	margin-top: -10px;
+	padding: 15px;
+	background-color: #795548;
+}
+
+.space{
+	height: 110px;
+}
+
+nav{
+  z-index: 5;
+}
+
+.item1{
+	background-image: url("./img/accessory/Airhorn.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item2{
+	background-image: url("./img/accessory/ArcticGoldfish.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item3{
+	background-image: url("./img/accessory/Bananasword.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item4{
+	background-image: url("./img/accessory/BurningMarshmallow.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item5{
+	background-image: url("./img/accessory/CircleGame.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item6{
+	background-image: url("./img/accessory/CucumberFacemask.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item7{
+	background-image: url("./img/accessory/Ghettoblaster.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item8{
+	background-image: url("./img/accessory/GiantQ-Tip.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item9{
+	background-image: url("./img/accessory/HolyPlunger.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item10{
+	background-image: url("./img/accessory/Hoverboard.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item11{
+	background-image: url("./img/accessory/PropellerHat.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item12{
+	background-image: url("./img/accessory/SocksInSandals.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item13{
+	background-image: url("./img/accessory/SpicyRamen.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item14{
+	background-image: url("./img/accessory/SpoiledMilk.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+.item15{
+	background-image: url("./img/accessory/WhoopeeCushion.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	transition: background 1s linear;
+}
+
+.show{
+	display: block!important;
+	transition-duration: 1s;
+
+}
+
+
+/* The animation code */
+@keyframes opacity {
+  0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    30% {
+        display: block;
+        opacity: 1;
+    }
+    70% {
+        display: block;
+        opacity: 1;
+    }
+
+    90% {
+        display: none;
+        opacity: 0;
+    }
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+#Formwrapper {
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#InputP3{
+	display: none;
+}
+#InputP4{
+	display: none;
+}
+
+.playerinput::placeholder{
+	font-family: giulia-plain, sans-serif;
+	font-size: -webkit-xxx-large;
+}
+
+.playerinput{
+    height: 5rem!important;
+		font-family: giulia-plain, sans-serif!important;
+		font-size: -webkit-xxx-large!important;
+		text-align: center;
+}
+
+
+@keyframes transitionanimation{
+  0% {
+        display: block;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    10% {
+        display: block;
+        opacity: 1;
+    }
+		80% {
+        display: block;
+        opacity: 1;
+    }
+
+    90% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 0;
+    }
+}
+
+.transition {
+	animation-name: transitionanimation;
+	animation-duration: 4s;
+
+}
+.alpacakommt {
+    background: black;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 9980;
+		display:none;
+		pointer-events:none;
+}
+
+#Gameover {
+	background: #c7a675;
+color: white;
+text-align: center;
+font-size: -webkit-xxx-large;
+height: 100vh;
+width: 100vw;
+position: fixed;
+z-index: 9981;
+display: none;
+
+}
+
+.itemset {
+    display: flex;
+    width: 40%;
+    justify-content: flex-start;
+}
+.itemsetitem {
+    height: 14vh;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 6vw;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.itemsetwrapper1 {
+    position: fixed;
+    width: 100%;
+    bottom: -81vh;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+
+.airhorn{
+	background-image: url("./img/accessory/Airhorn.jpg");
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover;
+
+}
+
+
+.arcticGoldfisch{
+	background-image: url("./img/accessory/ArcticGoldfish.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.bananaSword{
+	background-image: url("./img/accessory/Bananasword.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.burningMashmallow{
+	background-image: url("./img/accessory/BurningMarshmallow.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.circleGame{
+	background-image: url("./img/accessory/CircleGame.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.cucumberfacemask{
+	background-image: url("./img/accessory/CucumberFacemask.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.ghettoblaster{
+	background-image: url("./img/accessory/Ghettoblaster.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.giantQtip{
+	background-image: url("./img/accessory/GiantQ-Tip.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.holyPlunger{
+	background-image: url("./img/accessory/HolyPlunger.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.hoverboard{
+	background-image: url("./img/accessory/Hoverboard.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.propellerHat{
+	background-image: url("./img/accessory/PropellerHat.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.socksInSandals{
+	background-image: url("./img/accessory/SocksInSandals.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.spicyRamen{
+	background-image: url("./img/accessory/SpicyRamen.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.spoiledMilk{
+	background-image: url("./img/accessory/SpoiledMilk.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+.whoopeeCushion{
+	background-image: url("./img/accessory/WhoopeeCushion.jpg");
+	background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+}
+
+
+
+
+
+#WIN {
+	background: black;
+color: white;
+text-align: center;
+font-size: -webkit-xxx-large;
+height: 100vh;
+width: 100vw;
+position: fixed;
+z-index: 9981;
+display: none;
+
+}
+#Loss {
+	background: black;
+color: white;
+text-align: center;
+font-size: -webkit-xxx-large;
+height: 100vh;
+width: 100vw;
+position: fixed;
+z-index: 9982;
+display: none;
+
+}
+
+#playertransition{
+  position: fixed;
+  background-color: red;
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  z-index: 10;
+	opacity: 0;
+	pointer-events:none;
+}
+@keyframes Alpacalitness {
+  0%   {opacity: 0;}
+  49%  {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+/* The element to apply the animation to */
+.alpacaEnemyLitpoints {
+  width: 100px;
+  opacity: 0;
+  z-index: 999;
+  height: 100px;
+  border-radius: 50%;
+  border: solid red;
+  background-color: red;
+  animation-name: Alpacalitness;
+  animation-duration: 10000;
+}
+#AlpacaName {
+    color: wheat;
+    text-align: center;
+    font-size: -webkit-xxx-large;
+    margin-top: 10vh;
+}
+#AlpacaLitness {
+    font-size: -webkit-xxx-large;
+    text-align: center;
+    color: wheat;
+}
+#AlpacaBild {
+
+    margin-top: -300px;
+    transform: scale(0.4);
+}
+.blur {
+	transform-origin: 50% 50%;
+	opacity: 0;
+	visibility: hidden;
+	filter: blur(0px);
+	transform: scale(0.0001, 0.0001) rotate(2160deg);
+}
+.blur-in {
+	visibility: visible;
+	filter: blur(0px);
+	transform: scale(1, 1) rotate(0deg);
+	opacity: 1;
+	transition: all 0.25s ease-out;
+}
+#ALPAKAwrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.section{
+	text-align:center;
+}
+
+
+.header {
+    background-color: #ffe0b2;
+    width: 72vw;
+    right: 0vw;
+    /* top: 17vh; */
+    text-align: left;
+    /* margin-bottom: 33px; */
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+}
+.valuewrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50vw;
+}
+.Rucksack1 {
+    overflow: scroll;
+    width: 161px;
+}
+.Rucksack2 {
+    overflow: scroll;
+    width: 161px;
+}
+.Rucksack3 {
+    overflow: scroll;
+    width: 161px;
+}
+.Rucksack4 {
+    overflow: scroll;
+    width: 161px;
+}
+
+#wrapitall{
+
+  width:100vh;
+  height:100vw;
+}
+
+.wrapshop {
+    background-color: #ffe0b2;
+    border-radius: 0px 30px 0px 0px;
+    width: 72vw;
+    position: initial;
+    height: 67vh;
+    margin-bottom: 4vh;
+    padding: 10px 10px 10px 120px;
+    /* margin-bottom: 33px; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.wrapshop::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapevent{
+  width: 100vw;
+  height: 45vh;
+}
+
+.startbutton {
+border: none;
+color: white;
+padding-top: 25px;
+padding-bottom:30px;
+padding-left: 55px;
+padding-right: 55px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-family: giulia-plain, sans-serif;
+font-weight: 300;
+font-size: 100px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 30px;
+}
+
+.nextbutton {
+    position: sticky;
+    border: none;
+    color: white;
+    padding: 20px 40px 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: giulia-plain, sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    z-index: 9999;
+    margin-left: 80vw;
+    margin-bottom: 10vw;
+    margin-left: 20;
+    /* bottom: -111px; */
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+
+.items{
+float: left;
+  padding: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  height: 350px;
+  width: 200px;
+}
+
+#alpacabg{
+display: none;
+}

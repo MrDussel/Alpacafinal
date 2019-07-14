@@ -1,0 +1,467 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="https://use.typekit.net/vce4hkk.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" href="./css/styles.css" rel="stylesheet">
+	<link type="text/css" href="./css/fullpage.css" rel="stylesheet">
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="./js/fullpage.js"></script>
+	<script src="./js/game.js"></script>
+
+	<title>Alpacalaca</title>
+</head>
+
+<body>
+	<nav class="z-depth-2">
+		<div class="nav-wrapper orange lighten-4"> <a href="#home" class="brand-logo center">
+				<span class="logo alpacalaca brown-text">Alpacalaca</span></a>
+			<a href="#" data-target="mobile-demo" class="sidenav-trigger">
+				<i class="material-icons brown orange-text text-lighten-4">menu</i></a>
+			<ul class="left hide-on-med-and-down">
+				<li><a href="#rules" class="brown-text modal-trigger">Rules</a></li>
+				<li><a href="#" class="brown-text">About</a></li>
+			</ul>
+			<a id="soundbutton" class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+				<i class="material-icons" id="volume" onclick="changeIcon()">volume_up</i>
+			</a>
+		</div>
+
+	</nav>
+	<ul class="sidenav brown" id="mobile-demo">
+		<li><a href="#" class=" alpacalaca orange-text text-lighten-4">
+				<h4>Alpacalaca</h4>
+			</a></li>
+		<li><a href="#rules" class="orange-text text-lighten-4 modal-trigger">Rules</a></li>
+		<li><a href="#" class="orange-text text-lighten-4">About</a></li>
+	</ul>
+
+	<!-- Modal Structure -->
+	<div id="rules" class="modal modal-fixed-footer">
+		<div class="modal-content">
+			<h4>Rules</h4>
+			<br>
+			<h6>Equipment</h6>
+			<p>Gameboard, 4 game tokens, 3 dice, 55 playing cards (19 Chance Cards, 14 Alpaca Cards, 22 Accessory Cards), Instructions</p>
+			<br>
+			<h6>Object of the game</h6>
+			<p>Impress a many alpacas as possible. The first player to earn 30 Appreciation Points wins the game.</p>
+			<br>
+
+			<h6>Preparations</h6>
+			<p>Add as many players as you want (max. 4).
+				Every player selects a token and places it on the home field.
+				Sort the cards according to Chance Cards, Alpaca Cards and Accessory Cards. Shuffle each deck and place them face down next to the gameboard. Reveal 3 Accessory Cards, they represent the shop.
+				Every player receives 3 Coins.</p>
+			<br>
+			<h6>How to play</h6>
+			<p>Begin with the player who wears the most lit pair of socks an move in a clockwise direction. If everyone is wearing boring plain socks, the youngest player begins.</p>
+			<br>
+			<h6>Game phases</h6>
+			<p>The first game phase is the Shopping Phase.
+				Press the plus button in the Accessor Window to open the shop. You can buy any of the three revealed Accessory Cards for the amount of coins shown on the card. But keep in mind how many items you can carry. (please refer to Special Rules -
+				Accessories) By clicking onto the item it is purchased and added to your inventory. After you finished the Shopping Phase new Accessory Cards have to be revealed until the shop is full again (3 Cards).<br><br>
+				The second game phase is the Dice&Walk Phase.
+				Roll two dice (except if the number of dice was influenced by a Chance Card) and add the numbers. Then walk the number of stepps the dice show you. Players can stand on the same field together. On the blue River Fields you can take the
+				shortcut to the other blue river field. Same goes for the Canyon Fields on the bridges. In case of doublets, you are allowed to dice again. If you pass / step onto the HOME field, collect 5 Coins.<br><br>
+				The third game phase is the Action Phase.
+				Press next phase. If you landed on an Alpaca Field, reveal one card from the Alpaca Card deck / press the alpaca button. A random alpaca will be chosen, and your litpoints automatically compared.
+				If your Litpoint Score is higher than the alpaca‘s you win and earn the number of Appreciation Points shown on the card. If you lose, subtract the Disregard Points shown on the card from our Appreciation Points.
+				If you step onto a Chance Field, reveal one card from the Chance Card deck and read it out loud / press the chance button. A random chance card will be chosen and read out loud. Follow the instructions.
+				If you step onto a Game Field, choose one player and play the shown game against him. If there is already a player on that field, you have to play against him/her. (please refer to Special Rules - Game Field)
+				After finishing all three game phases the next player takes his turn. Press next player.</p>
+		</div>
+
+
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Thanks!</a>
+		</div>
+	</div>
+
+
+	<!-- Die App -->
+	<div id="alpacabg"><img src="./img/bg/bgBig.png" alt="roflcopter"></div>
+	<div id="Gameover"><span>Congratulations</span> <span id="GameoverPlayer"></span><span>, you are the littest!</span> <button id="gameoverbutton" onclick="restartgame();">Another Game?</button> </div>
+	<div id="WIN"><span>THE ALPACA IS IMPRESSED!</span><span>YOU WIN!</span><img src="./img/alpaca/victory"><button onclick="weiter();"> CONTINUE </button></div>
+	<div id="Loss"><span>THE ALPACA IS NOT IMPRESSED!</span><span>YOU LOOSE!</span><button onclick="weiter();"> CONTINUE </button></div>
+	<div class="alpacakommt">HALLO
+		<div id="ALPAKAwrapper">
+			<div id="AlpacaName"></div>
+			<div id="AlpacaLitness"></div>
+			<img id="AlpacaBild"></img>
+		</div>
+
+	</div>
+	<div id="playertransition">
+		<span id="Playernamefortransition"></span>
+
+	</div>
+	<div id="fullpage">
+
+		<div class="section" id="section1">
+			<div class="slide" id="slide1">
+
+				<a href="#home/1"><button class="startbutton waves-effect waves-light amber darken-1 z-depth-2">Start</button></a>
+			</div>
+
+			<div class="slide" id="slide2">
+				<h1>Select Players</h1>
+				<div id="Formwrapper">
+					<input id="InputP1" class="playerinput" type="text" name="Name" placeholder="Player 1"> </input>
+					<input id="InputP2" class="playerinput" type="text" name="Name" placeholder="Player 2"> </input>
+					<input id="InputP3" class="playerinput" type="text" name="Name" placeholder="Player 3"> </input>
+					<input id="InputP4" class="playerinput" type="text" name="Name" placeholder="Player 4"> </input>
+				</div>
+
+				<button id="Addplayer" onclick="addplayer()">Add Player</button>
+				<button id="Addplayer" onclick="removeplayer()">Remove Player</button>
+
+				<button class="nextbutton waves-effect waves-light amber darken-1 z-depth-2" onclick="savename(); moveStart();">Start</button>
+
+			</div>
+		</div>
+
+		<div class="section" id="section2">
+
+
+			<div class="slide" id="slide3">
+				<div class="wrapsite">
+					<div class="wrapshop">
+						<h1 class="shoptext">Shop</h1>
+						<div class="space"></div>
+						<div id="item1" class="items item1 z-depth-2" onclick="additem1();"></div>
+						<div id="item2" class="items item2 z-depth-2" onclick="additem2();"></div>
+						<div id="item3" class="items item3 z-depth-2" onclick="additem3();"></div>
+						<div id="item4" class="items item4 z-depth-2" onclick="additem4();"></div>
+						<div id="item5" class="items item5 z-depth-2" onclick="additem5();"></div>
+						<div id="item6" class="items item6 z-depth-2" onclick="additem6();"></div>
+						<div id="item7" class="items item7 z-depth-2" onclick="additem7();"></div>
+						<div id="item8" class="items item8 z-depth-2" onclick="additem8();"></div>
+						<div id="item9" class="items item9 z-depth-2" onclick="additem9();"></div>
+						<div id="item10" class="items item10 z-depth-2" onclick="additem10();"></div>
+						<div id="item11" class="items item11 z-depth-2" onclick="additem11();"></div>
+						<div id="item12" class="items item12 z-depth-2" onclick="additem12();"></div>
+						<div id="item13" class="items item13 z-depth-2" onclick="additem13();"></div>
+						<div id="item14" class="items item14 z-depth-2" onclick="additem14();"></div>
+						<div id="item15" class="items item15 z-depth-2" onclick="additem15();"></div>
+					</div>
+					<div class="header">
+						<div class="valuewrapper">
+							<span id="HSpielername1">Name</span>
+							<span id="LitnessWert1">Litness</span>
+							<span id="siegpunkte1">Appreciation</span>
+
+						</div>
+					</div>
+					<div class="itemsetwrapper1">
+						<div id="player1itemset" class="itemset">
+							<div id="airhorn1" style="display:none;" class="airhorn itemsetitem"></div>
+							<div id="arcticGoldfisch1" style="display:none;" class="arcticGoldfisch itemsetitem"></div>
+							<div id="bananaSword1" style="display:none;" class="bananaSword itemsetitem"></div>
+							<div id="burningMashmallow1" style="display:none;" class="burningMashmallow itemsetitem"></div>
+							<div id="circleGame1" style="display:none;" class="circleGame itemsetitem"></div>
+							<div id="cucumberfacemask1" style="display:none;" class="cucumberfacemask itemsetitem"></div>
+							<div id="ghettoblaster1" style="display:none;" class="ghettoblaster itemsetitem"></div>
+							<div id="giantQtip1" style="display:none;" class="giantQtip itemsetitem"></div>
+							<div id="holyPlunger1" style="display:none;" class="holyPlunger itemsetitem"></div>
+							<div id="hoverboard1" style="display:none;" class="hoverboard itemsetitem"></div>
+							<div id="propellerHat1" style="display:none;" class="propellerHat itemsetitem"></div>
+							<div id="socksInSandals1" style="display:none;" class="socksInSandals itemsetitem"></div>
+							<div id="spicyRamen1" style="display:none;" class="spicyRamen itemsetitem"></div>
+							<div id="spoiledMilk1" style="display:none;" class="spoiledMilk itemsetitem"></div>
+							<div id="whoopeeCushion1" style="display:none;" class="whoopeeCushion itemsetitem"></div>
+						</div>
+					</div>
+					<button class="nextbutton waves-effect waves-light green darken-1 z-depth-2" onclick="moveP1Next()">Next</button>
+				</div>
+			</div>
+
+			<div class="slide" id="slide4">
+				<h1>Field</h1>
+				<div class="wrapevent">
+					<button class="startbutton waves-effect waves-light amber darken-1 z-depth-2" onclick="alpaca(); alpacadiv()">Alpaka</button>
+				</div>
+				<!-- onclick="yourturn();" ist den Namen einblenden. Das klappt leider noch nicht. :/  -->
+
+				<button class="nextbutton waves-effect waves-light green darken-1 z-depth-2" onclick="movetotwo(); zaehlen();">Next</button>
+
+			</div>
+
+		</div>
+
+		<div class="section" id="section3">
+
+			<div class="slide" id="slide3">
+				<div class="wrapsite">
+					<div class="wrapshop">
+						<h1 class="shoptext">Shop</h1>
+						<div class="space"></div>
+							<div id="item1" class="items item1" onclick="additem1();"></div>
+							<div id="item2" class="items item2" onclick="additem2();"></div>
+							<div id="item3" class="items item3" onclick="additem3();"></div>
+							<div id="item4" class="items item4" onclick="additem4();"></div>
+							<div id="item5" class="items item5" onclick="additem5();"></div>
+							<div id="item6" class="items item6" onclick="additem6();"></div>
+							<div id="item7" class="items item7" onclick="additem7();"></div>
+							<div id="item8" class="items item8" onclick="additem8();"></div>
+							<div id="item9" class="items item9" onclick="additem9();"></div>
+							<div id="item10" class="items item10" onclick="additem10();"></div>
+							<div id="item11" class="items item11" onclick="additem11();"></div>
+							<div id="item12" class="items item12" onclick="additem12();"></div>
+							<div id="item13" class="items item13" onclick="additem13();"></div>
+							<div id="item14" class="items item14" onclick="additem14();"></div>
+							<div id="item15" class="items item15" onclick="additem15();"></div>
+						</div>
+						<div class="header">
+							<div class="valuewrapper">
+								<span id="HSpielername2"></span>
+								<span id="LitnessWert2">Litness</span>
+								<span id="siegpunkte2">Appreciation</span>
+							</div>
+						</div>
+						<div class="itemsetwrapper1">
+							<div id="player1itemset" class="itemset">
+								<div id="airhorn2" style="display:none;" class="airhorn itemsetitem"></div>
+								<div id="arcticGoldfisch2" style="display:none;" class="arcticGoldfisch itemsetitem"></div>
+								<div id="bananaSword2" style="display:none;" class="bananaSword itemsetitem"></div>
+								<div id="burningMashmallow2" style="display:none;" class="burningMashmallow itemsetitem"></div>
+								<div id="circleGame2" style="display:none;" class="circleGame itemsetitem"></div>
+								<div id="cucumberfacemask2" style="display:none;" class="cucumberfacemask itemsetitem"></div>
+								<div id="ghettoblaster2" style="display:none;" class="ghettoblaster itemsetitem"></div>
+								<div id="giantQtip2" style="display:none;" class="giantQtip itemsetitem"></div>
+								<div id="holyPlunger2" style="display:none;" class="holyPlunger itemsetitem"></div>
+								<div id="hoverboard2" style="display:none;" class="hoverboard itemsetitem"></div>
+								<div id="propellerHat2" style="display:none;" class="propellerHat itemsetitem"></div>
+								<div id="socksInSandals2" style="display:none;" class="socksInSandals itemsetitem"></div>
+								<div id="spicyRamen2" style="display:none;" class="spicyRamen itemsetitem"></div>
+								<div id="spoiledMilk2" style="display:none;" class="spoiledMilk itemsetitem"></div>
+								<div id="whoopeeCushion2" style="display:none;" class="whoopeeCushion itemsetitem"></div>
+							</div>
+						</div>
+						<button class="nextbutton waves-effect waves-light green darken-1 z-depth-2" onclick="moveP2Next()">Next</button>
+					</div>
+				</div>
+
+				<div class="slide" id="slide4">
+					<h1>Field</h1>
+					<div class="wrapevent">
+						<button class="startbutton waves-effect waves-light amber darken-1 z-depth-2" onclick="alpaca(); alpacadiv()">Alpaka</button>
+						<br><button class="startbutton waves-effect waves-light amber darken-1 z-depth-2">Event</button>
+					</div>
+
+					<button class="nextbutton waves-effect waves-light green darken-1 z-depth-2" onclick="movetothree(); zaehlen();">Next</button>
+
+				</div>
+
+			</div>
+
+			<div class="section" id="section4">
+
+				<div class="slide" id="slide3">
+					<div class="wrapsite">
+						<div class="wrapshop">
+							<h1 class="shoptext">Shop</h1>
+							<div class="space"></div>
+
+								<div id="item1" class="items item1" onclick="additem1();"></div>
+								<div id="item2" class="items item2" onclick="additem2();"></div>
+								<div id="item3" class="items item3" onclick="additem3();"></div>
+								<div id="item4" class="items item4" onclick="additem4();"></div>
+								<div id="item5" class="items item5" onclick="additem5();"></div>
+								<div id="item6" class="items item6" onclick="additem6();"></div>
+								<div id="item7" class="items item7" onclick="additem7();"></div>
+								<div id="item8" class="items item8" onclick="additem8();"></div>
+								<div id="item9" class="items item9" onclick="additem9();"></div>
+								<div id="item10" class="items item10" onclick="additem10();"></div>
+								<div id="item11" class="items item11" onclick="additem11();"></div>
+								<div id="item12" class="items item12" onclick="additem12();"></div>
+								<div id="item13" class="items item13" onclick="additem13();"></div>
+								<div id="item14" class="items item14" onclick="additem14();"></div>
+								<div id="item15" class="items item15" onclick="additem15();"></div>
+							</div>
+							<div class="header">
+								<div class="valuewrapper">
+									<span id="HSpielername3"></span>
+									<span id="LitnessWert3">Litness</span>
+									<span id="siegpunkte3">Appreciation</span>
+								</div>
+							</div>
+							<div class="itemsetwrapper1">
+								<div id="player1itemset" class="itemset">
+									<div id="airhorn3" style="display:none;" class="airhorn itemsetitem"></div>
+									<div id="arcticGoldfisch3" style="display:none;" class="arcticGoldfisch itemsetitem"></div>
+									<div id="bananaSword3" style="display:none;" class="bananaSword itemsetitem"></div>
+									<div id="burningMashmallow3" style="display:none;" class="burningMashmallow itemsetitem"></div>
+									<div id="circleGame3" style="display:none;" class="circleGame itemsetitem"></div>
+									<div id="cucumberfacemask3" style="display:none;" class="cucumberfacemask itemsetitem"></div>
+									<div id="ghettoblaster3" style="display:none;" class="ghettoblaster itemsetitem"></div>
+									<div id="giantQtip3" style="display:none;" class="giantQtip itemsetitem"></div>
+									<div id="holyPlunger3" style="display:none;" class="holyPlunger itemsetitem"></div>
+									<div id="hoverboard3" style="display:none;" class="hoverboard itemsetitem"></div>
+									<div id="propellerHat3" style="display:none;" class="propellerHat itemsetitem"></div>
+									<div id="socksInSandals3" style="display:none;" class="socksInSandals itemsetitem"></div>
+									<div id="spicyRamen3" style="display:none;" class="spicyRamen itemsetitem"></div>
+									<div id="spoiledMilk3" style="display:none;" class="spoiledMilk itemsetitem"></div>
+									<div id="whoopeeCushion3" style="display:none;" class="whoopeeCushion itemsetitem"></div>
+								</div>
+							</div>
+							<button class="nextbutton waves-effect waves-light green darken-1 z-depth-2" onclick="moveP3Next()">Next</button>
+						</div>
+					</div>
+
+					<div class="slide" id="slide4">
+						<h1>Field</h1>
+						<div class="wrapevent">
+							<button class="startbutton waves-effect waves-light amber darken-1 z-depth-2" onclick="alpaca(); alpacadiv()">Alpaka</button>
+							<br><a href="#Event"><button class="startbutton waves-effect waves-light amber darken-1 z-depth-2">Event</button></a>
+						</div>
+
+						<button class="nextbutton waves-effect waves-light green darken-1 z-depth-2" onclick="movetofour(); zaehlen();">Next</button>
+
+					</div>
+
+				</div>
+
+				<div class="section" id="section5">
+
+
+					<div class="slide" id="slide3">
+						<div class="wrapsite">
+
+								<div class="wrapshop">
+									<h1 class="shoptext">Shop</h1>
+									<div class="space"></div>
+									<div id="item1" class="items item1" onclick="additem1();"></div>
+									<div id="item2" class="items item2" onclick="additem2();"></div>
+									<div id="item3" class="items item3" onclick="additem3();"></div>
+									<div id="item4" class="items item4" onclick="additem4();"></div>
+									<div id="item5" class="items item5" onclick="additem5();"></div>
+									<div id="item6" class="items item6" onclick="additem6();"></div>
+									<div id="item7" class="items item7" onclick="additem7();"></div>
+									<div id="item8" class="items item8" onclick="additem8();"></div>
+									<div id="item9" class="items item9" onclick="additem9();"></div>
+									<div id="item10" class="items item10" onclick="additem10();"></div>
+									<div id="item11" class="items item11" onclick="additem11();"></div>
+									<div id="item12" class="items item12" onclick="additem12();"></div>
+									<div id="item13" class="items item13" onclick="additem13();"></div>
+									<div id="item14" class="items item14" onclick="additem14();"></div>
+									<div id="item15" class="items item15" onclick="additem15();"></div>
+								</div>
+								<div class="header">
+									<div class="valuewrapper">
+										<span id="HSpielername4"></span>
+										<span id="LitnessWert4">Litness</span>
+										<span id="siegpunkte4">Appreciation</span>
+									</div>
+								</div>
+								<div class="itemsetwrapper1">
+									<div id="player1itemset" class="itemset">
+										<div id="airhorn4" style="display:none;" class="airhorn itemsetitem"></div>
+										<div id="arcticGoldfisch4" style="display:none;" class="arcticGoldfisch itemsetitem"></div>
+										<div id="bananaSword4" style="display:none;" class="bananaSword itemsetitem"></div>
+										<div id="burningMashmallow4" style="display:none;" class="burningMashmallow itemsetitem"></div>
+										<div id="circleGame4" style="display:none;" class="circleGame itemsetitem"></div>
+										<div id="cucumberfacemask4" style="display:none;" class="cucumberfacemask itemsetitem"></div>
+										<div id="ghettoblaster4" style="display:none;" class="ghettoblaster itemsetitem"></div>
+										<div id="giantQtip4" style="display:none;" class="giantQtip itemsetitem"></div>
+										<div id="holyPlunger4" style="display:none;" class="holyPlunger itemsetitem"></div>
+										<div id="hoverboard4" style="display:none;" class="hoverboard itemsetitem"></div>
+										<div id="propellerHat4" style="display:none;" class="propellerHat itemsetitem"></div>
+										<div id="socksInSandals4" style="display:none;" class="socksInSandals itemsetitem"></div>
+										<div id="spicyRamen4" style="display:none;" class="spicyRamen itemsetitem"></div>
+										<div id="spoiledMilk4" style="display:none;" class="spoiledMilk itemsetitem"></div>
+										<div id="whoopeeCushion4" style="display:none;" class="whoopeeCushion itemsetitem"></div>
+									</div>
+								</div>
+								<button class="nextbutton waves-effect waves-light green darken-1 z-depth-2" onclick="moveP4Next()">Next</button>
+							</div>
+						</div>
+
+						<div class="slide" id="slide4">
+							<h1>Field</h1>
+							<div class="wrapevent">
+
+								<button class="startbutton waves-effect waves-light amber darken-1 z-depth-2" onclick="alpaca(); alpacadiv()">Alpaka</button></a>
+								<br><button class="startbutton waves-effect waves-light amber darken-1 z-depth-2">Event</button></a>
+							</div>
+
+							<button class="nextbutton waves-effect waves-light green darken-1 z-depth-2" onclick="movetoone();; zaehlen();">Next</button>
+
+						</div>
+
+					</div>
+
+
+
+					<script type="text/javascript">
+						var myFullpage = new fullpage('#fullpage', {
+							anchors: ['home', 'player1', 'player2', 'player3', 'player4'],
+							sectionsColor: ['cadetblue', 'darkseagreen', 'cadetblue', 'darkseagreen', 'cadetblue'],
+							scrollBar: true,
+							autoScrolling: false,
+						});
+					</script>
+
+
+
+
+
+					<!-- Scripts -->
+
+					<script>
+						// Sidenav
+						var elem = document.querySelector('.sidenav');
+						var instance = new M.Sidenav(elem);
+
+						// Modal
+						$(document).ready(function() {
+							$('.modal').modal();
+						});
+
+						//Volume
+						/*function changeIcon() {
+						  document.getElementById("volume").innerHTML = "volume_off";
+						}*/
+
+						function changeIcon() {
+							var x = document.getElementById("volume");
+							if (x.innerHTML === "volume_up") {
+								x.innerHTML = "volume_off";
+								mute();
+							} else {
+								x.innerHTML = "volume_up";
+								unmute();
+							}
+						}
+
+						//Smooth Scrollen
+						$('a[href^="#"]').on('click', function(event) {
+							var target = $(this.getAttribute('href'));
+
+							if (target.length) {
+								event.preventDefault();
+								$('html, body').stop().animate({
+									scrollLeft: target.offset().left
+								}, 700);
+							}
+						});
+
+						//fullpage
+
+
+						//transperson
+						function yourturn() {
+							document.getElementById("transperson").style.display = "block";
+						}
+					</script>
+
+</body>
+
+</html>
